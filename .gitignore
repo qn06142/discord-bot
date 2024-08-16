@@ -153,3 +153,5 @@ cython_debug/
 
 #token and sensitive stuff
 .env
+
+.venv/
