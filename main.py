@@ -235,7 +235,7 @@ async def on_message(message):
                     message_history[key] = []
 
                 message_history[key] = message_history[key][-MAX_HISTORY:]
-                history = '\n'.join([': '.join((message.author.name, message.content)) async for message in message.channel.history(limit=200)][::-1])
+                history = '\n'.join([': '.join(("time: " + str(message.created_at) + " message:", message.author.name, message.content)) async for message in message.channel.history(limit=200)][::-1])
                 user_prompt = "\n".join(message_history[author_id])
                 prompt = f"{instructions}\n{history}\n"
                 print(prompt)
